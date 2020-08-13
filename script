@@ -1,0 +1,869 @@
+-- Distributed by arponag.xyz \\ Best Roblox Hacks & Scripts
+-- Distributed by arponag.xyz \\ Best Roblox Hacks & Scripts
+
+local d = string.byte
+local i = string.char
+local c = string.sub
+local s = table.concat
+local P = math.ldexp
+local G = getfenv or function()
+        return _ENV
+    end
+local e = setmetatable
+local K = select
+local f = unpack
+local h = tonumber
+local function r(f)
+    local l, n, t = "", "", {}
+    local a = 256
+    local o = {}
+    for e = 0, a - 1 do
+        o[e] = i(e)
+    end
+    local e = 1
+    local function d()
+        local l = h(c(f, e, e), 36)
+        e = e + 1
+        local n = h(c(f, e, e + l - 1), 36)
+        e = e + l
+        return n
+    end
+    l = i(d())
+    t[1] = l
+    while e < #f do
+        local e = d()
+        if o[e] then
+            n = o[e]
+        else
+            n = l .. c(l, 1, 1)
+        end
+        o[a] = l .. c(n, 1, 1)
+        t[#t + 1], l, a = n, n, a + 1
+    end
+    return table.concat(t)
+end
+local t =
+    r(
+    "24V25K27525A25C21K21J21U25C27525626027922B26027525725C26W25K22B27C25K24U26G27G26G27524N27U27N27X24M26W27G27M25K24N28322B28328527I28727524E26827G26827524A28121J28B25K24B23K25425K23H23K27524628J22228324724822027N24827524327527N29523Y23K27G28S25K23U24827G29225K23Q24027G24027523X27S28K27U22027329G23C29G26Z24W27523C29X25K27326027U1J27I25K24329X25L23I2A024322021K25K23I29025K23X1021J21J23E2AL25323Y24O27922024O27523U29J21J22029L25K23R28322828323M2AY2B027523T21C21L21J23821C25L22026Z22023C25K21Z2AI26Z21S1O25K22621S2752BP2BL22B2BU25K26V23S27522B2C225K26R26O2C32C825K26N29B22B29B26J28628326F2AI22B2AI26B2CK2AI26N26G27U22B27X26N24023S25L22B2B126J29B23C29B26F2AV25K22Y2D626B2BZ2BY2752672DB2BZ26J2CR27Y27526J2402482CY2B126B22W2C32DR25K26722O2C32DW25K26A23427G23427526B2E327N2E62E528A2E62622B82B125Y2992AZ29B24825C25425L22X27C22025929522Z2752EP24W27922Z29X2202EJ2202EM2EO2EQ2752ES25K2EP2AS21J22Z2AV22025V23421425K21X2E625R182FG21X1827525S25C1825L22L2F325K2EW2ET25Z1O22G25L2352BR25K25N23423C25L2232E625N1W2FG22N1W27525J182FS22B2FO25K25J21K2FG22B2AF25K263102GQ102DD2GS2GR2E42GG27N2H225924O2AM22B2H625326825C2F122E2FV2FX2F726B2GM23C2GM2EJ2EL2EN2F72F425K2F62EP23S2EW2C22FD2FF2FH2E62EJ2G822F2HF2FA2FY2G02G22G425R2G72G92FJ2142FG23G2FG2GT2GV25K2312GX25K26B2IH23C2IH2592282AM22Z2IT25326R2G423C2G426N1G29Y2J32B229523A29525921C25J2HR21C21J2IX24026W25L21W2B124F22G2JI22M22G2BA21K21H2AN2JS25324Z2C523C2C524V2D229B2742752J82752JA2JC22Z2JE25324V27P23J27P25727X22T27X25B25K27U23729525B25C27I22K27P2KQ27522G27P29525K25I29525N25E29524K24N24P24S25725825624H24M24V25N25O29524V24P24L24T25N25R29523K25825825423Z24T25825N26H29527323T21N25121U23W23226W25E22O23C112141A26I26R21A22921E2611I23W230131U25N21621V1M25U1924M22525N2KZ25N25Q2952LA2LC2LE25N2MX27J25924Q2LG29524R24G24P25625L2KZ2KZ2NG2KZ21424N2CX2NH2FW26V25N26J29524727122725H21D25221T25Z24Y111B23922522W23N24D1021E22L25021P2721D23821D23N22B1L23H24L23H26V1B21D23E2NJ29522023T2NN2NO23S2K425K2OT2P22952OT2NI2P42P72752P32P92P82P12PC2PA2PD2PB2PH2PG2PJ2PF2PL2PE2PN2PI2PM2PP2PO2PK2PS2PQ2PJ2NO2PR2PY2PT2NO2PF2P62PZ2PV2Q52PU2Q72PZ2Q32Q02QB2Q62PI2PX2QF2QC2QG2QI2QD2PW"
+)
+local o = bit and bit.bxor or function(e, l)
+        local n, o = 1, 0
+        while e > 0 and l > 0 do
+            local a, c = e % 2, l % 2
+            if a ~= c then
+                o = o + n
+            end
+            e, l, n = (e - a) / 2, (l - c) / 2, n * 2
+        end
+        if e < l then
+            e = l
+        end
+        while e > 0 do
+            local l = e % 2
+            if l > 0 then
+                o = o + n
+            end
+            e, n = (e - l) / 2, n * 2
+        end
+        return o
+    end
+local function e(n, e, l)
+    if l then
+        local e = (n / 2 ^ (e - 1)) % 2 ^ ((l - 1) - (e - 1) + 1)
+        return e - e % 1
+    else
+        local e = 2 ^ (e - 1)
+        return (n % (e + e) >= e) and 1 or 0
+    end
+end
+local l = 1
+local function n()
+    local c, a, n, e = d(t, l, l + 3)
+    c = o(c, 200)
+    a = o(a, 200)
+    n = o(n, 200)
+    e = o(e, 200)
+    l = l + 4
+    return (e * 16777216) + (n * 65536) + (a * 256) + c
+end
+local function a()
+    local e = o(d(t, l, l), 200)
+    l = l + 1
+    return e
+end
+local function N()
+    local l = n()
+    local o = n()
+    local c = 1
+    local n = (e(o, 1, 20) * (2 ^ 32)) + l
+    local l = e(o, 21, 31)
+    local e = ((-1) ^ e(o, 32))
+    if (l == 0) then
+        if (n == 0) then
+            return e * 0
+        else
+            l = 1
+            c = 0
+        end
+    elseif (l == 2047) then
+        return (n == 0) and (e * (1 / 0)) or (e * (0 / 0))
+    end
+    return P(e, l - 1023) * (c + (n / (2 ^ 52)))
+end
+local r = n
+local function h(e)
+    local n
+    if (not e) then
+        e = r()
+        if (e == 0) then
+            return ""
+        end
+    end
+    n = c(t, l, l + e - 1)
+    l = l + e
+    local l = {}
+    for e = 1, #n do
+        l[e] = i(o(d(c(n, e, e)), 200))
+    end
+    return s(l)
+end
+local l = n
+local function r(...)
+    return {...}, K("#", ...)
+end
+local function P()
+    local d = {
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    }
+    local f = {}
+    local i = {}
+    local t = {d, nil, f, nil, i}
+    for a = 1, n() do
+        local c = o(n(), 119)
+        local n = o(n(), 155)
+        local o = e(c, 1, 2)
+        local l = e(n, 1, 11)
+        local l = {l, e(c, 3, 11), nil, nil, n}
+        if (o == 0) then
+            l[3] = e(c, 12, 20)
+            l[5] = e(c, 21, 29)
+        elseif (o == 1) then
+            l[3] = e(n, 12, 33)
+        elseif (o == 2) then
+            l[3] = e(n, 12, 32) - 1048575
+        elseif (o == 3) then
+            l[3] = e(n, 12, 32) - 1048575
+            l[5] = e(c, 21, 29)
+        end
+        d[a] = l
+    end
+    for e = 1, n() do
+        f[e - 1] = P()
+    end
+    local e = n()
+    local o = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    for n = 1, e do
+        local l = a()
+        local e
+        if (l == 2) then
+            e = (a() ~= 0)
+        elseif (l == 1) then
+            e = N()
+        elseif (l == 3) then
+            e = h()
+        end
+        o[n] = e
+    end
+    t[2] = o
+    for e = 1, n() do
+        i[e] = n()
+    end
+    t[4] = a()
+    return t
+end
+local N = pcall
+local function C(h, e, d)
+    local c = h[1]
+    local l = h[2]
+    local e = h[3]
+    local o = h[4]
+    return function(...)
+        local n = 1
+        local t = -1
+        local s = {...}
+        local i = K("#", ...) - 1
+        local function P()
+            local c = c
+            local a = l
+            local e = e
+            local o = o
+            local r = r
+            local h = {}
+            local e = {}
+            local l = {}
+            for e = 0, i do
+                if (e >= o) then
+                    h[e - o] = s[e + 1]
+                else
+                    l[e] = s[e + 1]
+                end
+            end
+            local e = i - o + 1
+            local e
+            local o
+            while true do
+                e = c[n]
+                o = e[1]
+                if o <= 32 then
+                    if o <= 15 then
+                        if o <= 7 then
+                            if o <= 3 then
+                                if o <= 1 then
+                                    if o == 0 then
+                                        l[e[2]] = d[a[e[3]]]
+                                    else
+                                        local o = e[2]
+                                        local a = l[o + 2]
+                                        local c = l[o] + a
+                                        l[o] = c
+                                        if a > 0 then
+                                            if c <= l[o + 1] then
+                                                n = n + e[3]
+                                                l[o + 3] = c
+                                            end
+                                        elseif c >= l[o + 1] then
+                                            n = n + e[3]
+                                            l[o + 3] = c
+                                        end
+                                    end
+                                elseif o == 2 then
+                                    local o = e[2]
+                                    local n = l[e[3]]
+                                    l[o + 1] = n
+                                    l[o] = n[a[e[5]]]
+                                else
+                                    l[e[2]] = #l[e[3]]
+                                end
+                            elseif o <= 5 then
+                                if o == 4 then
+                                    if (a[e[2]] < l[e[5]]) then
+                                        n = n + 1
+                                    else
+                                        n = n + e[3]
+                                    end
+                                else
+                                    if (l[e[2]] < l[e[5]]) then
+                                        n = n + 1
+                                    else
+                                        n = n + e[3]
+                                    end
+                                end
+                            elseif o == 6 then
+                                local o = e[3]
+                                local n = l[o]
+                                for e = o + 1, e[5] do
+                                    n = n .. l[e]
+                                end
+                                l[e[2]] = n
+                            else
+                                l[e[2]] = l[e[3]] - a[e[5]]
+                            end
+                        elseif o <= 11 then
+                            if o <= 9 then
+                                if o == 8 then
+                                    l[e[2]] = d[a[e[3]]]
+                                else
+                                    local n = e[2]
+                                    local o = l[e[3]]
+                                    l[n + 1] = o
+                                    l[n] = o[a[e[5]]]
+                                end
+                            elseif o > 10 then
+                                do
+                                    return
+                                end
+                            else
+                                l[e[2]] = l[e[3]][a[e[5]]]
+                            end
+                        elseif o <= 13 then
+                            if o == 12 then
+                                l[e[2]] = l[e[3]] / a[e[5]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]] - l[e[5]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]] / a[e[5]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]] * a[e[5]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]]
+                                n = n + 1
+                                e = c[n]
+                                n = n + e[3]
+                            else
+                                local o = e[3]
+                                local n = l[o]
+                                for e = o + 1, e[5] do
+                                    n = n .. l[e]
+                                end
+                                l[e[2]] = n
+                            end
+                        elseif o > 14 then
+                            l[e[2]]()
+                            t = A
+                        else
+                            if (l[e[2]] ~= l[e[5]]) then
+                                n = n + 1
+                            else
+                                n = n + e[3]
+                            end
+                        end
+                    elseif o <= 23 then
+                        if o <= 19 then
+                            if o <= 17 then
+                                if o == 16 then
+                                    l[e[2]] = l[e[3]] % a[e[5]]
+                                else
+                                    local t
+                                    local o
+                                    l[e[2]] = d[a[e[3]]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = d[a[e[3]]]
+                                    n = n + 1
+                                    e = c[n]
+                                    o = e[2]
+                                    t = l[e[3]]
+                                    l[o + 1] = t
+                                    l[o] = t[a[e[5]]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = a[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = l[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = l[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = l[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = l[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = a[e[3]]
+                                    n = n + 1
+                                    e = c[n]
+                                    l[e[2]] = d[a[e[3]]]
+                                end
+                            elseif o == 18 then
+                                l[e[2]] = l[e[3]] / a[e[5]]
+                            else
+                                local o = e[2]
+                                local c = {}
+                                local n = 0
+                                local a = o + e[3] - 1
+                                for e = o + 1, a do
+                                    n = n + 1
+                                    c[n] = l[e]
+                                end
+                                local c = {l[o](f(c, 1, a - o))}
+                                local e = o + e[5] - 2
+                                n = 0
+                                for e = o, e do
+                                    n = n + 1
+                                    l[e] = c[n]
+                                end
+                                t = e
+                            end
+                        elseif o <= 21 then
+                            if o > 20 then
+                                l[e[2]] = l[e[3]] + a[e[5]]
+                            else
+                                l[e[2]] = l[e[3]] - a[e[5]]
+                            end
+                        elseif o == 22 then
+                            l[e[2]] = l[e[3]] % a[e[5]]
+                        else
+                            l[e[2]] = l[e[3]][l[e[5]]]
+                        end
+                    elseif o <= 27 then
+                        if o <= 25 then
+                            if o == 24 then
+                                l[e[2]] = l[e[3]] - l[e[5]]
+                            else
+                                local o
+                                l[e[2]] = d[a[e[3]]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = l[e[3]][a[e[5]]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = {}
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = a[e[3]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = a[e[3]]
+                                n = n + 1
+                                e = c[n]
+                                l[e[2]] = a[e[3]]
+                                n = n + 1
+                                e = c[n]
+                                o = e[2]
+                                l[o] = l[o] - l[o + 2]
+                                n = n + e[3]
+                            end
+                        elseif o == 26 then
+                            l[e[2]] = l[e[3]] + a[e[5]]
+                        else
+                            l[e[2]] = a[e[3]]
+                        end
+                    elseif o <= 29 then
+                        if o > 28 then
+                            local s
+                            local i
+                            local o
+                            local h
+                            local d
+                            l[e[2]] = l[e[3]] % a[e[5]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]] + a[e[5]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]]
+                            n = n + 1
+                            e = c[n]
+                            d = e[2]
+                            h = {}
+                            o = 0
+                            i = d + e[3] - 1
+                            for e = d + 1, i do
+                                o = o + 1
+                                h[o] = l[e]
+                            end
+                            s = {l[d](f(h, 1, i - d))}
+                            i = d + e[5] - 2
+                            o = 0
+                            for e = d, i do
+                                o = o + 1
+                                l[e] = s[o]
+                            end
+                            t = i
+                            n = n + 1
+                            e = c[n]
+                            l[e[2]] = l[e[3]][l[e[5]]]
+                        else
+                            l[e[2]] = (e[3] ~= 0)
+                        end
+                    elseif o <= 30 then
+                        l[e[2]] = l[e[3]]
+                    elseif o > 31 then
+                        local o = e[2]
+                        local a = {}
+                        local n = 0
+                        local c = t
+                        for e = o + 1, c do
+                            n = n + 1
+                            a[n] = l[e]
+                        end
+                        local c = {l[o](f(a, 1, c - o))}
+                        local e = o + e[5] - 2
+                        n = 0
+                        for e = o, e do
+                            n = n + 1
+                            l[e] = c[n]
+                        end
+                        t = e
+                    else
+                        if (l[e[2]] ~= l[e[5]]) then
+                            n = n + 1
+                        else
+                            n = n + e[3]
+                        end
+                    end
+                elseif o <= 49 then
+                    if o <= 40 then
+                        if o <= 36 then
+                            if o <= 34 then
+                                if o == 33 then
+                                    l[e[2]] = l[e[3]] * a[e[5]]
+                                else
+                                    l[e[2]] = l[e[3]] + l[e[5]]
+                                end
+                            elseif o == 35 then
+                                l[e[2]] = l[e[3]][l[e[5]]]
+                            else
+                                local o = e[2]
+                                l[o] = l[o] - l[o + 2]
+                                n = n + e[3]
+                            end
+                        elseif o <= 38 then
+                            if o > 37 then
+                                l[e[2]] = {}
+                            else
+                                t = e[2]
+                            end
+                        elseif o > 39 then
+                            if (a[e[2]] < l[e[5]]) then
+                                n = n + 1
+                            else
+                                n = n + e[3]
+                            end
+                        else
+                            local o = e[2]
+                            l[o] = l[o] - l[o + 2]
+                            n = n + e[3]
+                        end
+                    elseif o <= 44 then
+                        if o <= 42 then
+                            if o > 41 then
+                                if (l[e[2]] < l[e[5]]) then
+                                    n = n + 1
+                                else
+                                    n = n + e[3]
+                                end
+                            else
+                                local o = e[2]
+                                local a = l[o + 2]
+                                local c = l[o] + a
+                                l[o] = c
+                                if a > 0 then
+                                    if c <= l[o + 1] then
+                                        n = n + e[3]
+                                        l[o + 3] = c
+                                    end
+                                elseif c >= l[o + 1] then
+                                    n = n + e[3]
+                                    l[o + 3] = c
+                                end
+                            end
+                        elseif o == 43 then
+                            l[e[2]] = l[e[3]]
+                        else
+                            l[e[2]] = (e[3] ~= 0)
+                        end
+                    elseif o <= 46 then
+                        if o == 45 then
+                            l[e[2]][l[e[3]]] = l[e[5]]
+                        else
+                            l[e[2]] = l[e[3]][a[e[5]]]
+                        end
+                    elseif o <= 47 then
+                        l[e[2]] = l[e[3]] / a[e[5]]
+                    elseif o > 48 then
+                        l[e[2]] = a[e[3]]
+                    else
+                        l[e[2]] = l[e[3]] - l[e[5]]
+                    end
+                elseif o <= 57 then
+                    if o <= 53 then
+                        if o <= 51 then
+                            if o == 50 then
+                                if (a[e[2]] >= l[e[5]]) then
+                                    n = n + 1
+                                else
+                                    n = n + e[3]
+                                end
+                            else
+                                n = n + e[3]
+                            end
+                        elseif o == 52 then
+                            local o = e[2]
+                            local a = {}
+                            local n = 0
+                            local c = t
+                            for e = o + 1, c do
+                                n = n + 1
+                                a[n] = l[e]
+                            end
+                            local c = {l[o](f(a, 1, c - o))}
+                            local e = o + e[5] - 2
+                            n = 0
+                            for e = o, e do
+                                n = n + 1
+                                l[e] = c[n]
+                            end
+                            t = e
+                        else
+                            local o = e[2]
+                            local c = {}
+                            local n = 0
+                            local e = o + e[3] - 1
+                            for e = o + 1, e do
+                                n = n + 1
+                                c[n] = l[e]
+                            end
+                            local c, e = r(l[o](f(c, 1, e - o)))
+                            e = e + o - 1
+                            n = 0
+                            for e = o, e do
+                                n = n + 1
+                                l[e] = c[n]
+                            end
+                            t = e
+                        end
+                    elseif o <= 55 then
+                        if o == 54 then
+                            local o = e[2]
+                            local c = {}
+                            local n = 0
+                            local e = o + e[3] - 1
+                            for e = o + 1, e do
+                                n = n + 1
+                                c[n] = l[e]
+                            end
+                            local c, e = r(l[o](f(c, 1, e - o)))
+                            e = e + o - 1
+                            n = 0
+                            for e = o, e do
+                                n = n + 1
+                                l[e] = c[n]
+                            end
+                            t = e
+                        else
+                            do
+                                return
+                            end
+                        end
+                    elseif o == 56 then
+                        n = n + e[3]
+                    else
+                        local h
+                        local d
+                        local o
+                        local i
+                        local a
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        a = e[2]
+                        i = {}
+                        o = 0
+                        d = a + e[3] - 1
+                        for e = a + 1, d do
+                            o = o + 1
+                            i[o] = l[e]
+                        end
+                        h = {l[a](f(i, 1, d - a))}
+                        d = a + e[5] - 2
+                        o = 0
+                        for e = a, d do
+                            o = o + 1
+                            l[e] = h[o]
+                        end
+                        t = d
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]][l[e[5]]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                        n = n + 1
+                        e = c[n]
+                        l[e[2]] = l[e[3]]
+                    end
+                elseif o <= 61 then
+                    if o <= 59 then
+                        if o > 58 then
+                            l[e[2]]()
+                            t = A
+                        else
+                            if (a[e[2]] >= l[e[5]]) then
+                                n = n + 1
+                            else
+                                n = n + e[3]
+                            end
+                        end
+                    elseif o > 60 then
+                        l[e[2]] = {}
+                    else
+                        l[e[2]][l[e[3]]] = l[e[5]]
+                    end
+                elseif o <= 63 then
+                    if o > 62 then
+                        l[e[2]] = #l[e[3]]
+                    else
+                        l[e[2]] = l[e[3]] * a[e[5]]
+                    end
+                elseif o <= 64 then
+                    local o = e[2]
+                    local a = {}
+                    local n = 0
+                    local c = o + e[3] - 1
+                    for e = o + 1, c do
+                        n = n + 1
+                        a[n] = l[e]
+                    end
+                    local c = {l[o](f(a, 1, c - o))}
+                    local e = o + e[5] - 2
+                    n = 0
+                    for e = o, e do
+                        n = n + 1
+                        l[e] = c[n]
+                    end
+                    t = e
+                elseif o > 65 then
+                    t = e[2]
+                else
+                    l[e[2]] = l[e[3]] + l[e[5]]
+                end
+                n = n + 1
+            end
+        end
+        A, B = r(N(P))
+        if not A[1] then
+            local e = h[7][n] or "?"
+            error("ERROR IN TRIGON SKYBLOCK SCRIPT [LINE " .. e .. "]:" .. A[2])
+        else
+            return f(A, 2, B)
+        end
+    end
+end
+return C(P(), {}, G())()
+
+
+-- Distributed by arponag.xyz \\ Best Roblox Hacks & Scripts
+-- Distributed by arponag.xyz \\ Best Roblox Hacks & Scripts
